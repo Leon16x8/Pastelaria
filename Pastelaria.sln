@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32106.194
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pastelaria", "Pastelaria\Pastelaria.csproj", "{EFB39002-0D94-4A1C-BF46-708077845295}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EFB39002-0D94-4A1C-BF46-708077845295}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFB39002-0D94-4A1C-BF46-708077845295}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFB39002-0D94-4A1C-BF46-708077845295}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFB39002-0D94-4A1C-BF46-708077845295}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {48564BA7-A89E-4427-A416-F649D680FD10}
+	EndGlobalSection
+EndGlobal
