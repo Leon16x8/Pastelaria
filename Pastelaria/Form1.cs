@@ -12,13 +12,13 @@ namespace Pastelaria
 {
     public partial class Form1 : Form
     {
-        Form2 Pedido;
+        Form3 Pedido;
         DAO dao;
 
         public Form1()
         {
             InitializeComponent();
-            Pedido = new Form2();
+            Pedido = new Form3();
             dao = new DAO();
         }
 
@@ -32,7 +32,8 @@ namespace Pastelaria
             string cpf = textBox2.Text;
             Visible = false;
             dao.Inserir(nome, cpf);
-            Pedido.ShowDialog();//Mostrar a tela ao ser chamada.     
+            Pedido.ShowDialog();//Mostrar a tela ao ser chamada.
+            Visible = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

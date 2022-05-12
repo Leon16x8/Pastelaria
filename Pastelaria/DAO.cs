@@ -48,7 +48,6 @@ namespace Pastelaria
                 resultado = "Insert into cliente(cpf, nome) values" + dados;
                 MySqlCommand sql = new MySqlCommand(resultado, conexao);
                 resultado = "" + sql.ExecuteNonQuery();
-                Console.WriteLine(resultado + "Cadastro feito com Sucesso !");
             }
             catch (Exception e)
             {
@@ -82,6 +81,20 @@ namespace Pastelaria
                 }
                 leitura.Close();
             }
+        }
+        public void AcessarPedido(string nom, int cp)
+        {
+            for (int i = 0; i < contador; i++)
+            {
+                if ((nom == nome[i]) && (cp == cpf[i]))
+                {
+                    new Form3();
+                }
+                else
+                {
+                    Console.WriteLine("Digite seu nome e o CPF por gentileza !");
+                }
+            }                     
         }
     }
 }

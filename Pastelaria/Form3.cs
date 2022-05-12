@@ -10,10 +10,10 @@ using System.Windows.Forms;
 
 namespace Pastelaria
 {
-    public partial class Form2 : Form
-    {
-        //Form1 for1;
+    
 
+    public partial class Form3 : Form
+    {
         class produto
         {
             public string nome;
@@ -28,13 +28,14 @@ namespace Pastelaria
         List<produto> LISTA_PRODUTOS;
         List<produto> LISTA_COMPRAS;
 
-        public Form2()
-        {
-           // for1 = new Form1();
+
+
+        public Form3()
+        {           
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
+        private void Form3_Load(object sender, EventArgs e)
         {
             LISTA_PRODUTOS = new List<produto>()
             {
@@ -57,7 +58,6 @@ namespace Pastelaria
             //Iniciar Compra
             IniciarCompras();
         }
-
         private static string ConstruirLinhaProduto(produto p)
         {
             string preco = p.preco.ToString("0.00") + " R$";
@@ -70,11 +70,6 @@ namespace Pastelaria
             LISTA_COMPRAS = new List<produto>();
             lst_compras.Items.Clear();
             label_total.Text = "0,00 R$";
-        }
-
-        private void lst_produtos_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void lst_produtos_DoubleClick(object sender, EventArgs e)
@@ -97,17 +92,14 @@ namespace Pastelaria
 
         private void button_finalizar_Click(object sender, EventArgs e)
         {
-           
             MessageBox.Show("Estamos fazendo o seu pedido. " +
                 "Aguarde e pague no caixa após receber os produtos " +
                 "Fábrica do Pastel agradece !" +
-                "" + Environment.NewLine + label_total.Text);
-            IniciarCompras();
+                "" + Environment.NewLine + " " + Environment.NewLine + "Valor Total: " + Environment.NewLine + label_total.Text);
+            this.Close();
+            
         }
 
-        private void lst_produtos_SelectedIndexChanged_1(object sender, EventArgs e)
-        {
 
-        }
     }
 }
