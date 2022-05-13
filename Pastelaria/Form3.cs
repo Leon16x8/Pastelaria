@@ -9,11 +9,10 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Pastelaria
-{
-    
-
+{  
     public partial class Form3 : Form
     {
+        Form2 Pagamento;
         class produto
         {
             public string nome;
@@ -31,12 +30,15 @@ namespace Pastelaria
 
 
         public Form3()
-        {           
+        {
+            Pagamento = new Form2();
             InitializeComponent();
         }
 
+        
         private void Form3_Load(object sender, EventArgs e)
         {
+            //Adicionando Produtos
             LISTA_PRODUTOS = new List<produto>()
             {
                 new produto(){ nome = "Pastel de Carne", preco = 8 },
@@ -74,6 +76,7 @@ namespace Pastelaria
 
         private void lst_produtos_DoubleClick(object sender, EventArgs e)
         {
+            //Selecionar Produto Clicando 2 Vezes
             if (lst_produtos.SelectedIndex == -1) return;
             produto p = LISTA_PRODUTOS[lst_produtos.SelectedIndex];
             AdicionarProdutoCompra(p);
@@ -92,14 +95,23 @@ namespace Pastelaria
 
         private void button_finalizar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Estamos fazendo o seu pedido. " +
-                "Aguarde e pague no caixa após receber os produtos " +
-                "Fábrica do Pastel agradece !" +
-                "" + Environment.NewLine + " " + Environment.NewLine + "Valor Total: " + Environment.NewLine + label_total.Text);
-            this.Close();
-            
+            Visible = false;            
+            Pagamento.ShowDialog();//Mostrar a tela ao ser chamada.
         }
 
+        private void lst_compras_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void label_total_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public string ValorTotal()
+        {
+            return label_total.Text;
+        }
     }
 }

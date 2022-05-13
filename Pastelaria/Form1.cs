@@ -30,17 +30,30 @@ namespace Pastelaria
         {
             string nome = textBox1.Text;
             string cpf = textBox2.Text;
-            Visible = false;
-            dao.Inserir(nome, cpf);
-            Pedido.ShowDialog();//Mostrar a tela ao ser chamada.
-            Visible = true;
+
+
+            if (string.IsNullOrEmpty(textBox1.Text) || string.IsNullOrEmpty(textBox2.Text))
+                {
+                MessageBox.Show("Insira por gentileza" + Environment.NewLine + "Nome e CPF");
+            }
+            else
+            {
+                Visible = false;
+                dao.Inserir(nome, cpf);
+                Pedido.ShowDialog();//Mostrar a tela ao ser chamada.
+                Visible = true;               
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            
         }
 
-       
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

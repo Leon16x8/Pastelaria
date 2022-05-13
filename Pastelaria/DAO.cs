@@ -20,7 +20,7 @@ namespace Pastelaria
         //Vetores
 
         public string[] nome;
-        public int[] cpf;
+        public string[] cpf;
         public int i;
         public int contador = 0;
 
@@ -28,7 +28,7 @@ namespace Pastelaria
         {
 
 
-            conexao = new MySqlConnection("server=localhost;DataBase=Pastelaria;Uid=root;Password=;Convert Zero DateTime=True;");
+            conexao = new MySqlConnection("server=localhost;DataBase=Pastelaria;Uid=root;");
             try
             {
                 conexao.Open();
@@ -64,37 +64,23 @@ namespace Pastelaria
             MySqlDataReader leitura = coletar.ExecuteReader();
             if (nomeTabela == "cliente")
             {
-                cpf = new int[100];
+                cpf = new string[100];
                 nome = new string[100];
 
                 for (i = 0; i < 100; i++)
                 {
-                    cpf[i] = 0;
+                    cpf[i] = "";
                     nome[i] = "";
                 }
 
                 i = 0;
                 while (leitura.Read())
                 {
-                    cpf[i] = (int)Convert.ToInt64(leitura["cpf"]);
+                    cpf[i] = leitura["cpf"] + "";
                     nome[i] = leitura["nome"] + "";
                 }
                 leitura.Close();
             }
-        }
-        public void AcessarPedido(string nom, int cp)
-        {
-            for (int i = 0; i < contador; i++)
-            {
-                if ((nom == nome[i]) && (cp == cpf[i]))
-                {
-                    new Form3();
-                }
-                else
-                {
-                    Console.WriteLine("Digite seu nome e o CPF por gentileza !");
-                }
-            }                     
         }
     }
 }

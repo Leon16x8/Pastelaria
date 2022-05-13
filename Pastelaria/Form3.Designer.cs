@@ -60,6 +60,7 @@
             this.label_total.TabIndex = 18;
             this.label_total.Text = "TOTAL";
             this.label_total.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label_total.Click += new System.EventHandler(this.label_total_Click);
             // 
             // label2
             // 
@@ -100,6 +101,7 @@
             this.lst_compras.Name = "lst_compras";
             this.lst_compras.Size = new System.Drawing.Size(189, 303);
             this.lst_compras.TabIndex = 14;
+            this.lst_compras.SelectedIndexChanged += new System.EventHandler(this.lst_compras_SelectedIndexChanged);
             // 
             // lst_produtos
             // 
