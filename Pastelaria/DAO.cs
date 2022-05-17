@@ -40,14 +40,28 @@ namespace Pastelaria
             }
         }
 
+        public void InserirProdutos(string produtos, string preco)
+        {
+            try
+            {
+                dados = "('" + produtos + "','" + preco + "')";
+                resultado = "Insert into finalizarPedido(produtos, preco) values" + dados;
+                MySqlCommand sql = new MySqlCommand(resultado, conexao);
+                resultado = "" + sql.ExecuteNonQuery();
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Algo Deu Errado Cria!\n\n" + e);
+            }
+        }
+
         public void Inserir(string nome, string cpf)
         {
             try
             {
                 dados = "('" + cpf + "','" + nome + "')";
                 resultado = "Insert into cliente(cpf, nome) values" + dados;
-                MySqlCommand sql = new MySqlCommand(resultado, conexao);
-                resultado = "" + sql.ExecuteNonQuery();
+                
             }
             catch (Exception e)
             {

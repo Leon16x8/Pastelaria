@@ -12,25 +12,29 @@ namespace Pastelaria
 {  
     public partial class Form3 : Form
     {
+        DAO dao;
         Form2 Pagamento;
+
+        
+
         class produto
-        {
-            public string nome;
+        {             
+            public string produtos;
             public double preco;
 
             public static implicit operator produto(List<produto> v)
             {
                 throw new NotImplementedException();
             }
-        }
+        }       
 
         List<produto> LISTA_PRODUTOS;
-        List<produto> LISTA_COMPRAS;
+        List<produto> LISTA_COMPRAS;       
 
-
-
+        
         public Form3()
         {
+            dao = new DAO();
             Pagamento = new Form2();
             InitializeComponent();
         }
@@ -41,15 +45,15 @@ namespace Pastelaria
             //Adicionando Produtos
             LISTA_PRODUTOS = new List<produto>()
             {
-                new produto(){ nome = "Pastel de Carne", preco = 8 },
-                new produto(){ nome = "Pastel de Frango", preco = 7 },
-                new produto(){ nome = "Pastel de Carne Seca", preco = 10 },
-                new produto(){ nome = "Pastel de Pizza", preco = 8 },
-                new produto(){ nome = "Pastel de Calabresa", preco = 9 },
-                new produto(){ nome = "Coca-Cola", preco = 10 },
-                new produto(){ nome = "Pepsi", preco = 6 },
-                new produto(){ nome = "Guarana Antártica", preco = 6 },
-                new produto(){ nome = "Heineken", preco = 12 },
+                new produto(){ produtos = "Pastel de Carne", preco = 8 },
+                new produto(){ produtos = "Pastel de Frango", preco = 7 },
+                new produto(){ produtos = "Pastel de Carne Seca", preco = 10 },
+                new produto(){ produtos = "Pastel de Pizza", preco = 8 },
+                new produto(){ produtos = "Pastel de Calabresa", preco = 9 },
+                new produto(){ produtos = "Coca-Cola", preco = 10 },
+                new produto(){ produtos = "Pepsi", preco = 6 },
+                new produto(){ produtos = "Guarana Antártica", preco = 6 },
+                new produto(){ produtos = "Heineken", preco = 12 },
             };
 
             foreach (produto p in LISTA_PRODUTOS)
@@ -63,7 +67,7 @@ namespace Pastelaria
         private static string ConstruirLinhaProduto(produto p)
         {
             string preco = p.preco.ToString("0.00") + " R$";
-            return p.nome + new string(' ', 30 - p.nome.Length - preco.Length) + preco;
+            return p.produtos + new string(' ', 30 - p.produtos.Length - preco.Length) + preco;
         }
 
         private void IniciarCompras()
@@ -95,6 +99,9 @@ namespace Pastelaria
 
         private void button_finalizar_Click(object sender, EventArgs e)
         {
+            string produtos = lst_compras.Text;
+            string preco = label_total.Text;
+            dao.InserirProdutos(produtos, preco);
             Visible = false;            
             Pagamento.ShowDialog();//Mostrar a tela ao ser chamada.
         }
@@ -106,12 +113,17 @@ namespace Pastelaria
 
         private void label_total_Click(object sender, EventArgs e)
         {
-
+            
         }
 
         public string ValorTotal()
         {
             return label_total.Text;
+        }
+
+        private void lst_produtos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

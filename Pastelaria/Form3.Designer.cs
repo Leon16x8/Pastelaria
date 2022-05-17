@@ -110,6 +110,7 @@
             this.lst_produtos.Name = "lst_produtos";
             this.lst_produtos.Size = new System.Drawing.Size(174, 303);
             this.lst_produtos.TabIndex = 13;
+            this.lst_produtos.SelectedIndexChanged += new System.EventHandler(this.lst_produtos_SelectedIndexChanged);
             this.lst_produtos.DoubleClick += new System.EventHandler(this.lst_produtos_DoubleClick);
             // 
             // Form3
