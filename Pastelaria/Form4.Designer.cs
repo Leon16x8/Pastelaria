@@ -78,7 +78,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form4";
-            this.Text = "Form4";
+            this.Text = "PIX";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);

@@ -131,7 +131,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Form3";
-            this.Text = "Form3";
+            this.Text = "Pedido";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
